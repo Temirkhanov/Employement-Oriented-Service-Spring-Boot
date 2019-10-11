@@ -1,4 +1,4 @@
-package com.goruslan.demo.Security;
+package com.goruslan.demo.security;
 
 import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest;
 import org.springframework.context.annotation.Configuration;

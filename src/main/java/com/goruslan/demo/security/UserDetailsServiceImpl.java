@@ -1,4 +1,4 @@
-package com.goruslan.demo.Security;
+package com.goruslan.demo.security;
 
 import com.goruslan.demo.domain.User;
 import com.goruslan.demo.repository.UserRepository;
