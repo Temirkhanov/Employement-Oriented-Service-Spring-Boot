@@ -2,12 +2,14 @@ package com.goruslan.demo.domain;
 
 import com.goruslan.demo.domain.validator.PasswordsMatch;
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @RequiredArgsConstructor

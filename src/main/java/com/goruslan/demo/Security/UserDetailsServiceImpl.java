@@ -1,6 +1,7 @@
 package com.goruslan.demo.Security;
 
 import com.goruslan.demo.domain.User;
+import com.goruslan.demo.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
