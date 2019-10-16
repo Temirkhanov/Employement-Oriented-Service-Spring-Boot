@@ -60,7 +60,7 @@ public class UserService {
     @Transactional
     public void saveUsers(User... users) {
         for(User user : users) {
-            logger.info("Saving User: " + user.getEmail());
+            logger.info("Saving User: " + user.getPhone());
             userRepository.save(user);
         }
     }
