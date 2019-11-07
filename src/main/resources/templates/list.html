@@ -99,13 +99,14 @@
                         <td th:text="${profile.phone}">1234567890</td>
                         <td th:text="${profile.address}">405 Ocean Ave</td>
                         <td th:text="${profile.ethnicity}">United States</td>
-                        <td>Morning</td>
-                        <td>Morning, Evening</td>
-                        <td>Morning, Evening</td>
-                        <td>Morning, Evening</td>
-                        <td>Evening</td>
-                        <td>Morning, Evening</td>
-                        <td>Evening</td>
+                        <th:block th:each="day : ${schedules.get(profile.id)}">
+                            <td>
+                                <span th:if="${day.morning}">Morning, </span>
+                                <span th:if="${day.afternoon}">Noon, </span>
+                                <span th:if="${day.evening}">Evening</span>
+                            </td>
+                        </th:block>
+
                     </tr>
                     <!-- End Body -->
                     </tbody>

@@ -62,57 +62,50 @@ var tfConfig = {
   custom_options: {
     cols: [8, 9,10,11,12,13,14],
     texts: [
-      ["Morning", "Noon", "Evening", "All Day"],
-      ["Morning", "Noon", "Evening", "All Day"],
-      ["Morning", "Noon", "Evening", "All Day"],
-      ["Morning", "Noon", "Evening", "All Day"],
-      ["Morning", "Noon", "Evening", "All Day"],
-      ["Morning", "Noon", "Evening", "All Day"],
-      ["Morning", "Noon", "Evening", "All Day"],
+      ["Morning", "Noon", "Evening"],
+      ["Morning", "Noon", "Evening"],
+      ["Morning", "Noon", "Evening"],
+      ["Morning", "Noon", "Evening"],
+      ["Morning", "Noon", "Evening"],
+      ["Morning", "Noon", "Evening"],
+      ["Morning", "Noon", "Evening"],
 
     ],
     values: [
       [
-        "Morning || Morning, Evening || Morning, Noon, Evening || Morning, Noon",
-        "Noon || Morning, Noon || Morning, Noon, Evening || Noon, Evening",
-        "Evening || Morning, Evening || Morning, Noon, Evening || Noon, Evening",
-        "Morning, Noon, Evening"
+          "*Morn",
+          "*Noo",
+          "*Even"
       ],
       [
-        "Morning || Morning, Evening || Morning, Noon, Evening || Morning, Noon",
-        "Noon || Morning, Noon || Morning, Noon, Evening || Noon, Evening",
-        "Evening || Morning, Evening || Morning, Noon, Evening || Noon, Evening",
-        "Morning, Noon, Evening"
+        "*Morn",
+        "*Noo",
+        "*Even"
       ],
           [
-          "Morning || Morning, Evening || Morning, Noon, Evening || Morning, Noon",
-              "Noon || Morning, Noon || Morning, Noon, Evening || Noon, Evening",
-              "Evening || Morning, Evening || Morning, Noon, Evening || Noon, Evening",
-              "Morning, Noon, Evening"
+            "*Morn",
+            "*Noo",
+            "*Even"
           ],
           [
-          "Morning || Morning, Evening || Morning, Noon, Evening || Morning, Noon",
-              "Noon || Morning, Noon || Morning, Noon, Evening || Noon, Evening",
-              "Evening || Morning, Evening || Morning, Noon, Evening || Noon, Evening",
-              "Morning, Noon, Evening"
+            "*Morn",
+            "*Noo",
+            "*Even"
           ],
       [
-        "Morning || Morning, Evening || Morning, Noon, Evening || Morning, Noon",
-        "Noon || Morning, Noon || Morning, Noon, Evening || Noon, Evening",
-        "Evening || Morning, Evening || Morning, Noon, Evening || Noon, Evening",
-        "Morning, Noon, Evening"
+        "*Morn",
+        "*Noo",
+        "*Even"
       ],
       [
-        "Morning || Morning, Evening || Morning, Noon, Evening || Morning, Noon",
-        "Noon || Morning, Noon || Morning, Noon, Evening || Noon, Evening",
-        "Evening || Morning, Evening || Morning, Noon, Evening || Noon, Evening",
-        "Morning, Noon, Evening"
+        "*Morn",
+        "*Noo",
+        "*Even"
       ],
       [
-        "Morning || Morning, Evening || Morning, Noon, Evening || Morning, Noon",
-        "Noon || Morning, Noon || Morning, Noon, Evening || Noon, Evening",
-        "Evening || Morning, Evening || Morning, Noon, Evening || Noon, Evening",
-        "Morning, Noon, Evening"
+        "*Morn",
+        "*Noo",
+        "*Even"
       ],
     ],
     sorts: [false, false]
