@@ -8,7 +8,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 import java.util.*;
 
 @Entity
@@ -25,9 +24,8 @@ public class User implements UserDetails {
     private Long id;
 
     @NonNull
-    @Size(min=10, max=10)
     @Column(nullable = false, unique = true)
-    private String phone;
+    private String username;
 
     @NonNull
     @Column(length = 150)
@@ -36,6 +34,9 @@ public class User implements UserDetails {
     @NonNull
     @Column(nullable = true)
     private boolean enabled;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Profile profile;
 
     // Sets up 3rd table between roles and users. User might have one or few roles so we fetch all the roles.
     @ManyToMany(fetch = FetchType.EAGER)
@@ -72,7 +73,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return phone;
+        return username;
     }
 
     @Override

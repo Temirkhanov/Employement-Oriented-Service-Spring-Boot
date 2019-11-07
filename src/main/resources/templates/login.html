@@ -10,24 +10,38 @@
 <body>
 <nav th:replace="~{main_layout :: nav}"  style="z-index: 9999;"></nav>
     <main class="page login-page">
-        <section class="clean-block clean-form dark">
-            <div class="container">
+        <section
+                class="clean-block clean-form dark"
+                style="background-color: rgb(255,255,255);"
+        >
+            <div class="container" >
                 <div class="block-heading" style="padding-top: 40px;">
-                    <h2 class="text-info" style="color: #4267b2;">Log In</h2>
-                </div>
-                <form>
-                    <div class="form-group"><label for="email">Phone</label><input class="form-control item" type="email" id="email"></div>
-                    <div class="form-group"><label for="password">Password</label><input class="form-control" type="password" id="password"></div><a class="btn btn-primary btn-block" role="button" href="#" style="background-color: #4267b2;margin-top: 5vh;">Log In</a></form>
+                <h2 class="text-info" style="color: #4267b2;">Log In</h2>
+            </div>
+                <form method="post" class="shadow" th:action="@{/login}">
+                    <div class="alert alert-danger" th:if="${param.error != null}">
+                        Invalid username and password.
+                    </div>
+                    <div class="alert alert-success" th:if="${param.logout != null}">
+                        You have been logged out.
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">Username</label
+                        ><input class="form-control item" type="text" id="username" name="username"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label
+                        ><input class="form-control" type="password" id="password" name="password"/>
+                    </div>
+                    <button class="btn btn-primary btn-block" type="submit">
+                        Log In
+                    </button>
+                </form>
             </div>
         </section>
     </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
-    <script src="assets/js/smoothproducts.min.js"></script>
-    <script src="assets/js/theme.js"></script>
+
 </body>
 
 </html>

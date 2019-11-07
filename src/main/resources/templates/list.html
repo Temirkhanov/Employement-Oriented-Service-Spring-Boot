@@ -9,51 +9,101 @@
 
 <body>
 <nav th:replace="~{main_layout :: nav}"  style="z-index: 9999;"></nav>
-    <main class="page login-page">
-        <section class="clean-block clean-form dark">
-            <div class="container">
-                <div class="block-heading" style="padding-top: 40px;">
-                    <h2 class="text-info" style="color: #4267b2;">Agents</h2>
-                </div>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Gender</th>
-                                <th>Location</th>
-                                <th>Langauge</th>
-                                <th>Phone</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>Male</td>
-                                <td>Brooklyn</td>
-                                <td>Russian, English</td>
-                                <td>458-487-6214</td>
-                            </tr>
-                            <tr>
-                                <td>Angela Deormge</td>
-                                <td>Female</td>
-                                <td>Queens</td>
-                                <td>Spanish, English</td>
-                                <td>115-548-8745</td>
-                            </tr>
-                        </tbody>
-                    </table>
+<main class="page login-page">
+    <section class="clean-block clean-form dark">
+        <div class="container" style="padding-right: 25px; padding-left: 25px; max-width: 1500px;">
+
+            <!-- Filters for the table -->
+            <div class="block-heading" style="padding-top: 40px;margin-bottom: 0;">
+                <ul class="nav nav-tabs d-flex justify-content-center">
+                    <li class="nav-item dropdown"><a data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle nav-link" href="#" style="font-weight: bold;color: #4267b2;">Dropdown </a>
+                        <div role="menu" class="dropdown-menu"><a role="presentation" class="dropdown-item" href="#">First Item</a><a role="presentation" class="dropdown-item" href="#">Second Item</a><a role="presentation" class="dropdown-item" href="#">Third Item</a></div>
+                    </li>
+                    <li class="nav-item dropdown"><a data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle nav-link" href="#" style="font-weight: bold;color: #4267b2;">Dropdown </a>
+                        <div role="menu" class="dropdown-menu"><a role="presentation" class="dropdown-item" href="#">First Item</a><a role="presentation" class="dropdown-item" href="#">Second Item</a><a role="presentation" class="dropdown-item" href="#">Third Item</a></div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: #4267b2;">Third Item</a></li>
+                </ul>
+            </div>
+
+            <!-- Table of Agents -->
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr style="font-size: 15px; background-color: rgba(66,103,178, 0.4);">
+                        <th>First</th>
+                        <th>Last</th>
+                        <th>Gender</th>
+                        <th>Zip</th>
+                        <th>English</th>
+                        <th>Language</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Country</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="list-agents-row text-uppercase"
+                        th:each="profile : ${profiles}">
+                        <td th:text="${profile.first}">John</td>
+                        <td th:text="${profile.last}">Doe</td>
+                        <td th:text="${profile.gender}">Male</td>
+                        <td th:text="${profile.zip}">11230</td>
+                        <td th:if="${profile.getEnglish()}">Yes</td>
+                        <td th:if="${!profile.getEnglish()}">No</td>
+                        <td th:text="${profile.language}">Russian</td>
+                        <td th:text="${profile.phone}">1234567890</td>
+                        <td th:text="${profile.address}">405 Ocean Ave</td>
+                        <td th:text="${profile.ethnicity}">United States</td>
+                        <td style="padding: 0;padding-top: 8px;">
+                            <a class="btn btn-primary btn-sm" role="button" style="background-color: #4267b2;" data-toggle="modal"
+                               th:attr="href='#p'+${profile.id}">
+                                Availability
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Schedule -->
+            <div th:each="key : ${schedules.keySet()}">
+            <div class="modal fade" role="dialog" tabindex="-1" th:id="|p${key}|">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+<!--                            <h4 class="modal-title" style="color: #4267b2;" th:text="|${profiles.get(schedule.getUserId()-2).first} ${profiles.get(schedule.getUserId()-2).last}|">-->
+<!--                                John Doe-->
+<!--                            </h4>-->
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        </div>
+                        <div class="modal-body text-capitalize">
+                            <div class="row modal-schedule-day" th:each="schedule : ${schedules.get(key)}">
+
+                                <div class="col-3">
+                                    <span th:text="${schedule.day}" style="font-size: 18px;font-weight: bold;">Monday</span></div>
+                                <div class="col-3">
+                                    <span style="font-size: 18px;" th:if="${schedule.morning}">Morning </span>
+                                </div>
+                                <div class="col-3">
+                                    <span style="font-size: 18px;" th:if="${schedule.afternoon}">Afternoon </span>
+                                </div>
+                                <div class="col-3">
+                                    <span style="font-size: 18px;" th:if="${schedule.evening}">Evening </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
-    <script src="assets/js/smoothproducts.min.js"></script>
-    <script src="assets/js/theme.js"></script>
+            </div>
+        </div>
+    </section>
+</main>
+
 </body>
 
 </html>

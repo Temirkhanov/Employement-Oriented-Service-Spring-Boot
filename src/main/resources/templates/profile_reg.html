@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{main_layout :: head(title = 'Check')}"> </head>
+
+  <body>
+    <nav style="z-index: 9999;" th:replace="~{main_layout :: nav}"></nav>
+    <main class="page registration-page">
+      <section class="clean-block clean-form dark">
+        <div class="container">
+          <div class="block-heading" style="padding-top: 40px;">
+            <h2 class="text-info" style="color: #4267b2;">
+              New Agent Registration
+            </h2>
+          </div>
+
+          <!-- Success Registration-->
+          <div class="row d-flex justify-content-center" th:if="${success}">
+            <div class="col-6 alert alert-success " role="alert">
+              Success! Thank you for registering. &nbsp <a
+                    class=""
+                    th:href="@{/login}">Login</a>
+            </div>
+          </div>
+
+          <form
+            class="shadow"
+            method="POST"
+            role="form"
+            th:action="@{/new-agent}"
+            th:if="!${success}"
+          >
+            <!-- Validation Errors -->
+            <div class="row" th:if="${validationErrors}">
+              <div class="col d-flex justify-content-center align-items-center">
+                <span class="text-danger align-middle">
+                  <ul th:each="error : ${validationErrors}">
+                    <li th:text="${error.getDefaultMessage()}"></li>
+                  </ul>
+                </span>
+              </div>
+            </div>
+            <div class="row" th:if="${validationErrorsUser}">
+              <div class="col d-flex justify-content-center align-items-center">
+                <span class="text-danger align-middle">
+                  <ul th:each="error : ${validationErrorsUser}">
+                    <li th:text="${error.getDefaultMessage()}"></li>
+                  </ul>
+                </span>
+              </div>
+            </div>
+
+            <!-- Fields -->
+
+            <!-- Username -->
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input
+                class="form-control item"
+                id="username"
+                name="username"
+                type="text"
+                th:value="${user.username}"
+                required
+                autofocus
+              />
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+              <label for="password">Password (8-16 characters)</label>
+              <input
+                class="form-control item"
+                type="password"
+                id="password"
+                name="password"
+                maxlength="16"
+                minlength="8"
+                th:value="${user.password}"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="confirmPassword">Password (repeat)</label>
+              <input
+                class="form-control item"
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                th:value="${user.confirmPassword}"
+                required
+              />
+            </div>
+
+            <!-- First Name -->
+            <div class="form-group">
+              <label for="first">First Name</label>
+              <input
+                class="form-control item"
+                id="first"
+                name="first"
+                type="text"
+                maxlength="20"
+                placeholder="John"
+                th:value="${profile.first}"
+                required
+              />
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group">
+              <label for="last">Last Name</label>
+              <input
+                      class="form-control item"
+                      id="last"
+                      name="last"
+                      type="text"
+                      maxlength="20"
+                      placeholder="Doe"
+                      th:value="${profile.last}"
+                      required
+              />
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+              <label for="phone">Phone Number</label
+              ><input pattern="[0-9]{10}"
+                class="form-control item"
+                id="phone"
+                name="phone"
+                type="tel"
+                minlength="10" maxlength="10"
+                placeholder="9991114466"
+                th:value="${profile.phone}"
+                required
+              />
+            </div>
+
+            <!-- DOB -->
+            <div class="form-group">
+              <label for="dob">Date Of Birth</label>
+              <input id="dob" name="dob" class="form-control" type="date" th:field="${profile.dob}"/>
+            </div>
+
+
+            <!-- Zip Code -->
+            <div class="form-group">
+              <label for="zip">Zip Code</label>
+              <input
+                      class="form-control item"
+                      id="zip"
+                      name="zip"
+                      type="number"
+                      th:value="${profile.last}"
+                      required
+              />
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+              <label for="address">Address (Optional)</label>
+              <input
+                      class="form-control item"
+                      id="address"
+                      name="address"
+                      type="text"
+                      maxlength="30"
+                      placeholder="415 Ocean Ave, Brooklyn"
+                      th:value="${profile.address}"
+                       style="margin-bottom: 4vh;"
+              />
+            </div>
+
+            <!-- Country -->
+            <div class="form-group">
+              <label for="address"> Country (Optional)</label>
+              <input
+                      class="form-control item"
+                      id="country"
+                      name="address"
+                      type="text"
+                      maxlength="30"
+                      placeholder="United States"
+                      th:value="${profile.ethnicity}"
+                      style="margin-bottom: 4vh;"
+              />
+            </div>
+
+            <!-- Gender -->
+            <span class="col-12" style="font-family: Montserrat, sans-serif; font-size: 1rem; padding-left: 0px;">Gender</span>
+            <div class="form-group d-flex justify-content-center" style="margin: 1vh; margin-bottom: 4vh;">
+              <div class="custom-control custom-control-inline custom-radio col-6">
+                <input class="custom-control-input" type="radio" th:field="*{profile.gender}" value="Male" id="male">
+                <label class="custom-control-label" for="male" style="font-size: 0.95rem;">Male</label>
+              </div>
+              <div class="custom-control custom-control-inline custom-radio col-6">
+                <input class="custom-control-input" type="radio" th:field="*{profile.gender}" value="Female" id="female">
+                <label class="custom-control-label" for="female" style="font-size: 0.95rem;">Female</label>
+              </div>
+            </div>
+
+            <!-- English -->
+            <span class="col-12" style="font-family: Montserrat, sans-serif; font-size: 1rem; padding-left: 0px;">Do you speak English?</span>
+            <div class="form-group d-flex justify-content-center" style="margin-top: 1.5vh; margin-bottom: 4vh;">
+              <div class="custom-control custom-control-inline custom-radio col-6">
+                <input class="custom-control-input" type="radio" th:field="*{profile.english}" value="1" id="english">
+                <label class="custom-control-label" for="english" style="font-size: 0.95rem;">Yes</label>
+              </div>
+              <div class="custom-control custom-control-inline custom-radio col-6">
+                <input class="custom-control-input" type="radio" th:field="*{profile.english}" value="0" id="no-english">
+                <label class="custom-control-label" for="no-english" style="font-size: 0.95rem;">No</label>
+              </div>
+            </div>
+
+
+            <!-- Other Language -->
+            <span class="col-12" style="font-family: Montserrat, sans-serif; font-size: 1rem; padding-left: 0px; margin-top: 5vh;">Other language: </span>
+            <div class="form-group d-flex justify-content-center row" style="margin-top: 1.5vh; margin-bottom: 2vh;">
+
+              <div class="custom-control custom-control-inline custom-radio col-5" th:each="lang : ${languages}">
+                <input class="custom-control-input" type="radio" th:field="${profile.language}" th:value="${lang}" th:id="${lang}">
+                <label class="text-capitalize custom-control-label" th:for="${lang}" th:text="${lang}" style="font-size: 0.95rem;">Language</label>
+              </div>
+
+            </div>
+
+
+            <!--
+            As you know, input component has an attribute, checked to whether mark the checkbox as enabled by default or not.
+            -->
+            <!-- New Format -->
+            <h4 class="text-uppercase d-flex justify-content-center" style="color: #4267b2; margin-top: 5vh; margin-bottom: 3vh;">availability<br /></h4>
+
+            <div th:object="${schedule}">
+              <div th:each="sch, itemStat : *{scheduleList}">
+
+                <h1 class="display-4 text-center day-heading" th:text="*{scheduleList[__${itemStat.index}__].day}" >Tuesday</h1>
+                <input type="hidden" th:field="*{scheduleList[__${itemStat.index}__].day}" th:value="*{scheduleList[__${itemStat.index}__].day}"/>
+                <div class="form-group d-flex justify-content-center" style="margin-bottom: 20px;" >
+
+                  <div class="custom-control custom-checkbox" style="margin-right: 10px;">
+                  <input type="checkbox" class="custom-control-input"
+                         th:field="*{scheduleList[__${itemStat.index}__].morning}" value="1"
+                         th:id="|${sch.day}-morning|" />
+                  <label class="custom-control-label" th:for="|${sch.day}-morning|">Morning</label>
+                  </div>
+
+                  <div class="custom-control custom-checkbox" style="margin-right: 10px;">
+                    <input type="checkbox" class="custom-control-input"
+                           th:field="*{scheduleList[__${itemStat.index}__].afternoon}" value="1"
+                           th:id="|${sch.day}-afternoon|" />
+                    <label class="custom-control-label" th:for="|${sch.day}-afternoon|">Afternoon</label>
+                  </div>
+
+                  <div class="custom-control custom-checkbox" style="margin-right: 10px;">
+                    <input type="checkbox" class="custom-control-input"
+                           th:field="*{scheduleList[__${itemStat.index}__].evening}" value="1"
+                           th:id="|${sch.day}-evening|" />
+                    <label class="custom-control-label" th:for="|${sch.day}-evening|">Evening</label>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-block" style="margin-top: 10px;" type="submit">
+              Sign Up
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

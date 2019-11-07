@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head th:replace="~{main_layout :: head(title = 'Check')}">
+</head>
+
+<body>
+<nav th:replace="~{main_layout :: nav}"  style="z-index: 9999;"></nav>
+
+<main class="page">
+  <section class="clean-block features">
+    <div class="container">
+      <div class="block-heading"></div>
+      <div class="content">
+        <div class="row no-gutters">
+          <div class="col-md-12 col-lg-6 d-flex justify-content-center">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                <tr></tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td class="text-uppercase" th:text="|${profile.getFirst()} ${profile.getLast()}|" style="font-size: 28px;color: #4267b2;">John Doe</td>
+                </tr>
+                <tr>
+                  <td class="agent-profile">
+                    <i class="la la-map-marker" style="margin-right: 10px;"></i>
+                    <span th:text="${profile.getZip()}">Zip</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="agent-profile">
+                    <i class="la la-phone" style="margin-right: 10px;"></i>
+                    <span th:text="${profile.getPhone()}">Phone</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="agent-profile">
+                    <i class="la la-birthday-cake" style="margin-right: 10px;"></i>
+                    <span th:text="${profile.getDob()}">Date Of Birth</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="agent-profile">
+                    <i class="la la-transgender" style="margin-right: 10px;"></i>
+                    <span th:text="${profile.getGender()}">Gender</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="agent-profile">
+                    <i class="la la-language" style="margin-right: 10px;"></i>
+                    <span th:text="${profile.getLanguage()}">Language</span>
+                    <span th:if="${profile.getEnglish()}">, English</span>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-lg-6 d-flex justify-content-center">
+
+            <!-- Schedule -->
+            <div th:object="${schedule}">
+              <div th:each="sch, itemStat : *{scheduleList}">
+
+                <h1 class="display-4 text-center day-heading" th:text="*{scheduleList[__${itemStat.index}__].day}" >Tuesday</h1>
+                <input type="hidden" th:field="*{scheduleList[__${itemStat.index}__].day}" th:value="*{scheduleList[__${itemStat.index}__].day}"/>
+                <div class="form-group d-flex justify-content-center" style="margin-bottom: 20px;" >
+
+                  <div class="custom-control custom-checkbox" style="margin-right: 10px;">
+                    <input type="checkbox" class="custom-control-input"
+                           th:field="*{scheduleList[__${itemStat.index}__].morning}" value="1"
+                           th:id="|${sch.day}-morning|" />
+                    <label class="custom-control-label" th:for="|${sch.day}-morning|">Morning</label>
+                  </div>
+
+                  <div class="custom-control custom-checkbox" style="margin-right: 10px;">
+                    <input type="checkbox" class="custom-control-input"
+                           th:field="*{scheduleList[__${itemStat.index}__].afternoon}" value="1"
+                           th:id="|${sch.day}-afternoon|" />
+                    <label class="custom-control-label" th:for="|${sch.day}-afternoon|">Afternoon</label>
+                  </div>
+
+                  <div class="custom-control custom-checkbox" style="margin-right: 10px;">
+                    <input type="checkbox" class="custom-control-input"
+                           th:field="*{scheduleList[__${itemStat.index}__].evening}" value="1"
+                           th:id="|${sch.day}-evening|" />
+                    <label class="custom-control-label" th:for="|${sch.day}-evening|">Evening</label>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+</main>
+
+</body>
+</html>

@@ -159,6 +159,10 @@ html, body {
   background: #444;
 }
 
+.radio-register {
+  margin-top: 0vh;
+}
+
 @media screen and (max-width: 400px) {
   .sp-wrap {
     margin: 0 0 15px 0;

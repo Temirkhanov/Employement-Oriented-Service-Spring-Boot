@@ -12,12 +12,11 @@
     <link rel="stylesheet" th:href="@{/assets/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/assets/Data-Table-1.css}">
     <link rel="stylesheet" th:href="@{/assets/Data-Table.css}">
-    <link rel="stylesheet" th:href="@{/assets//smoothproducts.css}">
+    <link rel="stylesheet" th:href="@{/assets/smoothproducts.css}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
-
     <script th:src="@{/assets/smoothproducts.min.js}"></script>
     <script th:src="@{/assets/theme.js}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -30,23 +29,28 @@
 
 <body>
 <nav class="navbar navbar-light navbar-expand-lg fixed-top clean-navbar" style="background-color: #4267b2;padding: 5px 8px;">
-    <div class="container"><a class="navbar-brand logo" href="#" style="color: rgba(255,255,255,0.9);">Ozod Kot</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container"><a class="navbar-brand text-uppercase logo" th:href="@{/}" style="color: rgba(255,255,255,0.9);"><i class="icon-people" style="margin-right: 10px;"></i>Care Connect</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div
                 class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
 
-                <!-- If user is signed in -->
-                <li class="nav-item" role="presentation " sec:authorize="!isAuthenticated()" >
+                <!-- If user is NOT signed in -->
+                <li class="nav-item" role="presentation" sec:authorize="!isAuthenticated()" >
                     <a
-                            class="nav-link text-primary d-xl-flex justify-content-xl-center align-items-xl-center"
-                            th:href="@{/login}"
-                    ><i class="fa fa-sign-in" id="navbar-icon"></i>&nbsp;login</a
-                    >
+                            class="nav-link d-flex justify-content-center align-items-center" style="color: rgba(255,255,255,0.9);font-size: 16px;font-weight: normal;"
+                            th:href="@{/login}">
+                    <i class="fa fa-sign-in" style="font-size: 18px;margin-right: 5px;"></i>Login</a>
                 </li>
 
 
 
-                <!-- If user is not signed in -->
+                <!-- If user is signed in -->
+                <li class="nav-item" role="presentation" sec:authorize="isAuthenticated()" >
+                    <a
+                            class="nav-link d-flex justify-content-center align-items-center" style="color: rgba(255,255,255,0.9);font-size: 16px;font-weight: normal;"
+                            th:href="@{/profile}">
+                        <i class="fa fa-sign-in" style="font-size: 18px;margin-right: 5px;"></i>Profile</a>
+                </li>
                 <li class="nav-item" role="presentation">
                     <form
                             method="POST"
@@ -54,10 +58,8 @@
                             sec:authorize="isAuthenticated()"
                     >
                         <button
-                                class="nav-link link text-danger d-xl-flex justify-content-xl-center align-items-xl-center"
-                                style="border: none; background: none;"
-
-                        ><i class="fa fa-sign-out" id="navbar-icon"></i>&nbsp;logout</button
+                                class="nav-link d-flex justify-content-center align-items-center"
+                                style="color: red;font-size: 16px;font-weight: normal; background: none; border: none;"><i class="fa fa-sign-out" style="font-size: 18px;margin-right: 5px; background: #4267b2;"></i>Logout</button
                         >
                     </form>
                 </li>

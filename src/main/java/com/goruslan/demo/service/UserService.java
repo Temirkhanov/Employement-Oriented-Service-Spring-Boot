@@ -37,6 +37,7 @@ public class UserService {
         // Assigning a role to the user
         user.addRole(roleService.findByName("ROLE_USER"));
 
+        user.setEnabled(true);
         // Set an activation code
 
         // Disable the user before saving.
@@ -45,9 +46,7 @@ public class UserService {
         save(user);
 
         // Send activation email.
-        sendActivationEmail(user);
-
-        // Return user.
+//        sendActivationEmail(user);
 
         return user;
     }
@@ -56,11 +55,14 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    public Optional<User> findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
 
     @Transactional
     public void saveUsers(User... users) {
         for(User user : users) {
-            logger.info("Saving User: " + user.getPhone());
+            logger.info("Saving User: " + user.getUsername());
             userRepository.save(user);
         }
     }

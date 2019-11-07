@@ -2,3 +2,27 @@
   margin-bottom: 0;
 }
 
+.agent-profile {
+  font-size: 25px;
+  color: rgba(37,50,77,0.76);
+}
+
+.list-agents-row {
+  font-size: 15px;
+}
+
+.modal-schedule-day {
+  padding: 10px;
+  border-bottom: 1px solid #dedede;
+}
+
+.day-heading {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(81,82,84);
+  margin-bottom: 3px;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(66,103,178, 0.2);
+}

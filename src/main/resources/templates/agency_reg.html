@@ -8,34 +8,93 @@
 </head>
 
 <body>
-<nav th:replace="~{main_layout :: nav}"  style="z-index: 9999;"></nav>
-    <main class="page registration-page">
-        <section class="clean-block clean-form dark">
-            <div class="container">
-                <div class="block-heading" style="padding-top: 40px;">
-                    <h2 class="text-info" style="color: #4267b2;">Agency Registration</h2>
+<nav style="z-index: 9999;" th:replace="~{main_layout :: nav}"></nav>
+<main class="page registration-page">
+    <section class="clean-block clean-form dark">
+        <div class="container">
+            <div class="block-heading" style="padding-top: 40px;">
+                <h2 class="text-info" style="color: #4267b2;">
+                    New Agency Registration
+                </h2>
+            </div>
+
+            <!-- Success Registration-->
+            <div class="row d-flex justify-content-center" th:if="${success}">
+                <div class="col-6 alert alert-success " role="alert">
+                    Success! Thank you for registering. &nbsp <a
+                        class=""
+                        th:href="@{/login}">Login</a>
                 </div>
-                <form>
-                    <div class="form-group"><label for="name">Company Name</label><input class="form-control item" type="text" id="name" name="name"></div>
-                    <div class="form-group"><label for="phone">Phone</label><input class="form-control item" type="email" id="phone" name="phone"></div>
-                    <div class="form-group"><label for="location">City</label><input class="form-control item" type="location" id="location" name="location"></div>
-                    <div class="form-group"><label for="password">Password</label><input class="form-control item" type="password" id="password" name="password"></div>
-                    <div class="form-group"><label for="confirmPassword">Confirm Password</label><input class="form-control item" type="password" id="confirmPassword" name="confirmPassword"></div>
-                    <div class="form-group d-flex justify-content-center" style="margin-top: 5vh;">
-                        <div class="custom-control custom-control-inline custom-checkbox"><input class="custom-control-input" type="checkbox" id="formCheck-1"><label class="custom-control-label" for="formCheck-1">English</label></div>
-                        <div class="custom-control custom-control-inline custom-checkbox"><input class="custom-control-input" type="checkbox" id="formCheck-1"><label class="custom-control-label" for="formCheck-1">Russian</label></div>
-                        <div class="custom-control custom-control-inline custom-checkbox"><input class="custom-control-input" type="checkbox" id="formCheck-2"><label class="custom-control-label" for="formCheck-2">Spanish</label></div>
-                    </div><a class="btn btn-primary btn-block" role="button" href="#" style="background-color: #4267b2;margin-top: 5vh;">Sign Up</a></form>
+            </div>
+
+            <form
+                    class="shadow"
+                    method="POST"
+                    role="form"
+                    th:action="@{/new-agency}"
+                    th:if="!${success}"
+            >
+                <!-- Validation Errors -->
+                <div class="row" th:if="${validationErrors}">
+                    <div class="col d-flex justify-content-center align-items-center">
+                <span class="text-danger align-middle">
+                  <ul th:each="error : ${validationErrors}">
+                    <li th:text="${error.getDefaultMessage()}"></li>
+                  </ul>
+                </span>
+                    </div>
+                </div>
+
+
+
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input
+                                class="form-control item"
+                                type="text"
+                                id="username"
+                                placeholder="JohnDoe"
+                                name="username"
+                                th:field="${user.username}"
+                                required
+                                autofocus
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input
+                                class="form-control item"
+                                type="password"
+                                id="password"
+                                name="password"
+                                th:field="${user.password}"
+                                required
+                                autofocus
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Password (repeat)</label>
+                        <input
+                                class="form-control item"
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                th:field="${user.confirmPassword}"
+                                required
+                                autofocus
+                        />
+                    </div>
+
+                    <button class="btn btn-primary btn-block" type="submit">
+                        Sign Up
+                    </button>
+                </form>
             </div>
         </section>
     </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
-    <script src="assets/js/smoothproducts.min.js"></script>
-    <script src="assets/js/theme.js"></script>
+
 </body>
 
 </html>
