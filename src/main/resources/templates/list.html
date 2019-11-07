@@ -4,50 +4,93 @@
         xmlns:th="http://www.thymeleaf.org"
         xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
 >
-<head th:replace="~{main_layout :: head(title = 'Check')}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Care Connect</title>
+    <link rel="stylesheet" th:href="@{/assets/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/Data-Table-1.css}">
+    <link rel="stylesheet" th:href="@{/assets/Data-Table.css}">
+    <link rel="stylesheet" th:href="@{/assets/smoothproducts.css}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <script th:src="@{/assets/smoothproducts.min.js}"></script>
+    <script th:src="@{/assets/theme.js}"></script>
+    <script th:src="@{/assets/TableFilter-master/dist/tablefilter/tablefilter.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
+
 <nav th:replace="~{main_layout :: nav}"  style="z-index: 9999;"></nav>
 <main class="page login-page">
     <section class="clean-block clean-form dark">
         <div class="container" style="padding-right: 25px; padding-left: 25px; max-width: 1500px;">
 
-            <!-- Filters for the table -->
-            <div class="block-heading" style="padding-top: 40px;margin-bottom: 0;">
-                <ul class="nav nav-tabs d-flex justify-content-center">
-                    <li class="nav-item dropdown"><a data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle nav-link" href="#" style="font-weight: bold;color: #4267b2;">Dropdown </a>
-                        <div role="menu" class="dropdown-menu"><a role="presentation" class="dropdown-item" href="#">First Item</a><a role="presentation" class="dropdown-item" href="#">Second Item</a><a role="presentation" class="dropdown-item" href="#">Third Item</a></div>
-                    </li>
-                    <li class="nav-item dropdown"><a data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle nav-link" href="#" style="font-weight: bold;color: #4267b2;">Dropdown </a>
-                        <div role="menu" class="dropdown-menu"><a role="presentation" class="dropdown-item" href="#">First Item</a><a role="presentation" class="dropdown-item" href="#">Second Item</a><a role="presentation" class="dropdown-item" href="#">Third Item</a></div>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#" style="color: #4267b2;">Third Item</a></li>
-                </ul>
-            </div>
-
             <!-- Table of Agents -->
             <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                    <tr style="font-size: 15px; background-color: rgba(66,103,178, 0.4);">
-                        <th>First</th>
-                        <th>Last</th>
-                        <th>Gender</th>
-                        <th>Zip</th>
-                        <th>English</th>
-                        <th>Language</th>
-                        <th>Phone</th>
-                        <th>Address</th>
-                        <th>Country</th>
-                        <th></th>
+                <table class="table .my-table">
+                    <thead style="font-size: 12px; font-weight: 500; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                    <tr class="tcustom-header">
+                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
+                            Name
+                        </th>
+                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
+                            Gender
+                        </th>
+                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
+                            Zip
+                        </th>
+                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
+                            English
+                        </th>
+                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
+                            Language
+                        </th>
+                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
+                            Phone
+                        </th>
+                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
+                            Address
+                        </th>
+                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
+                            Country
+                        </th>
+
+                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
+                            Mon
+                        </th>
+                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
+                            Tue
+                        </th>
+                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
+                            Wed
+                        </th>
+                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
+                            Thu
+                        </th>
+                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
+                            Fri
+                        </th>
+                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
+                            Sat
+                        </th>
+                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
+                            Sun
+                        </th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr class="list-agents-row text-uppercase"
-                        th:each="profile : ${profiles}">
-                        <td th:text="${profile.first}">John</td>
-                        <td th:text="${profile.last}">Doe</td>
+                    <tbody class="custom-tbody">
+                    <!-- Body -->
+                    <tr class="custom-tr-header" th:each="profile : ${profiles}">
+                        <td th:text="|${profile.last}, ${profile.first}|">Doe</td>
                         <td th:text="${profile.gender}">Male</td>
                         <td th:text="${profile.zip}">11230</td>
                         <td th:if="${profile.getEnglish()}">Yes</td>
@@ -56,50 +99,61 @@
                         <td th:text="${profile.phone}">1234567890</td>
                         <td th:text="${profile.address}">405 Ocean Ave</td>
                         <td th:text="${profile.ethnicity}">United States</td>
-                        <td style="padding: 0;padding-top: 8px;">
-                            <a class="btn btn-primary btn-sm" role="button" style="background-color: #4267b2;" data-toggle="modal"
-                               th:attr="href='#p'+${profile.id}">
-                                Availability
-                            </a>
-                        </td>
+                        <td>Morning</td>
+                        <td>Morning, Evening</td>
+                        <td>Morning, Evening</td>
+                        <td>Morning, Evening</td>
+                        <td>Evening</td>
+                        <td>Morning, Evening</td>
+                        <td>Evening</td>
                     </tr>
+                    <!-- End Body -->
                     </tbody>
                 </table>
+                <script th:src="@{/assets/custom.js}"></script>
+                <script>
+
+                        var elmnt = document.getElementsByClassName("helpCont");
+                        $(elmnt).remove();
+                        var elmnt2 = document.getElementsByClassName("helpBtn");
+                        $(elmnt2).remove();
+
+                </script>
             </div>
 
-            <!-- Schedule -->
-            <div th:each="key : ${schedules.keySet()}">
-            <div class="modal fade" role="dialog" tabindex="-1" th:id="|p${key}|">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-<!--                            <h4 class="modal-title" style="color: #4267b2;" th:text="|${profiles.get(schedule.getUserId()-2).first} ${profiles.get(schedule.getUserId()-2).last}|">-->
-<!--                                John Doe-->
-<!--                            </h4>-->
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        </div>
-                        <div class="modal-body text-capitalize">
-                            <div class="row modal-schedule-day" th:each="schedule : ${schedules.get(key)}">
+<!--            &lt;!&ndash; Schedule &ndash;&gt;-->
+<!--            <div th:each="key : ${schedules.keySet()}">-->
+<!--            <div class="modal fade" role="dialog" tabindex="-1" th:id="|p${key}|">-->
+<!--                <div class="modal-dialog" role="document">-->
+<!--                    <div class="modal-content">-->
+<!--                        <div class="modal-header">-->
+<!--&lt;!&ndash;                            <h4 class="modal-title" style="color: #4267b2;" th:text="|${profiles.get(schedule.getUserId()-2).first} ${profiles.get(schedule.getUserId()-2).last}|">&ndash;&gt;-->
+<!--&lt;!&ndash;                                John Doe&ndash;&gt;-->
+<!--&lt;!&ndash;                            </h4>&ndash;&gt;-->
+<!--                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>-->
+<!--                        </div>-->
+<!--                        <div class="modal-body text-capitalize">-->
+<!--                            <div class="row modal-schedule-day" th:each="schedule : ${schedules.get(key)}">-->
 
-                                <div class="col-3">
-                                    <span th:text="${schedule.day}" style="font-size: 18px;font-weight: bold;">Monday</span></div>
-                                <div class="col-3">
-                                    <span style="font-size: 18px;" th:if="${schedule.morning}">Morning </span>
-                                </div>
-                                <div class="col-3">
-                                    <span style="font-size: 18px;" th:if="${schedule.afternoon}">Afternoon </span>
-                                </div>
-                                <div class="col-3">
-                                    <span style="font-size: 18px;" th:if="${schedule.evening}">Evening </span>
-                                </div>
+<!--                                <div class="col-3">-->
+<!--                                    <span th:text="${schedule.day}" style="font-size: 18px;font-weight: bold;">Monday</span></div>-->
+<!--                                <div class="col-3">-->
+<!--                                    <span style="font-size: 18px;" th:if="${schedule.morning}">Morning </span>-->
+<!--                                </div>-->
+<!--                                <div class="col-3">-->
+<!--                                    <span style="font-size: 18px;" th:if="${schedule.afternoon}">Afternoon </span>-->
+<!--                                </div>-->
+<!--                                <div class="col-3">-->
+<!--                                    <span style="font-size: 18px;" th:if="${schedule.evening}">Evening </span>-->
+<!--                                </div>-->
 
-                            </div>
-                        </div>
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            </div>-->
 
-                    </div>
-                </div>
-            </div>
-            </div>
         </div>
     </section>
 </main>

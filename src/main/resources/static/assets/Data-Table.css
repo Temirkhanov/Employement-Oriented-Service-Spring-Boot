@@ -4,7 +4,7 @@
 
 .agent-profile {
   font-size: 25px;
-  color: rgba(37,50,77,0.76);
+  color: rgba(37, 50, 77, 0.76);
 }
 
 .list-agents-row {
@@ -19,10 +19,37 @@
 .day-heading {
   font-size: 18px;
   font-weight: bold;
-  color: rgb(81,82,84);
+  color: rgb(81, 82, 84);
   margin-bottom: 3px;
 }
 
 tr:nth-child(even) {
-  background-color: rgba(66,103,178, 0.2);
+  background-color: #dbdbdb;
 }
+
+thead .tcustom-header th:hover {
+  background-color: #acb3e8;
+}
+
+thead .tcustom-header th {
+  border-bottom: 1px solid gray;
+}
+
+.custom-tr-header {
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 500;
+}
+
+.tcustom-header {
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  text-align: left;
+}
+.custom-tr-header td {
+  padding: 4px 2px 4px 2px;
+  text-align: center;
+}
+
+
