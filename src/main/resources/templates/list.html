@@ -4,161 +4,135 @@
         xmlns:th="http://www.thymeleaf.org"
         xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
 >
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Care Connect</title>
-    <link rel="stylesheet" th:href="@{/assets/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/assets/Data-Table-1.css}">
-    <link rel="stylesheet" th:href="@{/assets/Data-Table.css}">
-    <link rel="stylesheet" th:href="@{/assets/smoothproducts.css}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
-    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
-    <script th:src="@{/assets/smoothproducts.min.js}"></script>
-    <script th:src="@{/assets/theme.js}"></script>
-    <script th:src="@{/assets/TableFilter-master/dist/tablefilter/tablefilter.js}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<head th:replace="~{main_layout :: head(title = 'Check')}">
 </head>
 
 <body>
-
 <nav th:replace="~{main_layout :: nav}"  style="z-index: 9999;"></nav>
 <main class="page login-page">
     <section class="clean-block clean-form dark">
-        <div class="container" style="padding-right: 25px; padding-left: 25px; max-width: 1500px;">
-
-            <!-- Table of Agents -->
-            <div class="table-responsive">
-                <table class="table .my-table">
-                    <thead style="font-size: 12px; font-weight: 500; font-family: Verdana, Geneva, Tahoma, sans-serif;">
-                    <tr class="tcustom-header">
-                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
-                            Name
-                        </th>
-                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
-                            Gender
-                        </th>
-                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
-                            Zip
-                        </th>
-                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
-                            English
-                        </th>
-                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
-                            Language
-                        </th>
-                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
-                            Phone
-                        </th>
-                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
-                            Address
-                        </th>
-                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
-                            Country
-                        </th>
-
-                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
-                            Mon
-                        </th>
-                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
-                            Tue
-                        </th>
-                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
-                            Wed
-                        </th>
-                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
-                            Thu
-                        </th>
-                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
-                            Fri
-                        </th>
-                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
-                            Sat
-                        </th>
-                        <th style="padding: 5px 2px 5px 2px; text-align: center;">
-                            Sun
-                        </th>
+        <div class="container">
+            <div class="block-heading" style="padding-top: 40px;margin-bottom: 0;">
+                <form style="margin: 0;padding: 5px;width: 100%;max-width: 100%;">
+                    <div class="form-row" style="margin: 0;padding: 10px ;">
+                        <div class="col-12">
+                            <h5 style="font-size: 16px;font-weight: 600;margin-bottom: 15px;">Availability</h5>
+                        </div>
+                        <div class="col" style="padding: 0px 10px;"><span style="font-size: 14px;font-weight: 500;">Monday</span><select class="form-control form-control-sm" style="font-size: 14px;padding: 3px 6px;font-weight: 500;"><option value="0" selected="">Select...</option><option value="1">Morning</option><option value="2">Afternoon</option><option value="3">Evening</option></select></div>
+                        <div
+                                class="col" style="padding: 0px 10px;"><span style="font-size: 14px;font-weight: 500;">Monday</span><select class="form-control form-control-sm" style="font-size: 14px;padding: 3px 6px;font-weight: 500;"><option value="0" selected="">Select...</option><option value="1">Morning</option><option value="2">Afternoon</option><option value="3">Evening</option></select></div>
+                        <div
+                                class="col" style="padding: 0px 10px;"><span style="font-size: 14px;font-weight: 500;">Monday</span><select class="form-control form-control-sm" style="font-size: 14px;padding: 3px 6px;font-weight: 500;"><option value="0" selected="">Select...</option><option value="1">Morning</option><option value="2">Afternoon</option><option value="3">Evening</option></select></div>
+                        <div
+                                class="col" style="padding: 0px 10px;"><span style="font-size: 14px;font-weight: 500;">Monday</span><select class="form-control form-control-sm" style="font-size: 14px;padding: 3px 6px;font-weight: 500;"><option value="0" selected="">Select...</option><option value="1">Morning</option><option value="2">Afternoon</option><option value="3">Evening</option></select></div>
+                        <div
+                                class="col" style="padding: 0px 10px;"><span style="font-size: 14px;font-weight: 500;">Monday</span><select class="form-control form-control-sm" style="font-size: 14px;padding: 3px 6px;font-weight: 500;"><option value="0" selected="">Select...</option><option value="1">Morning</option><option value="2">Afternoon</option><option value="3">Evening</option></select></div>
+                        <div
+                                class="col" style="padding: 0px 10px;"><span style="font-size: 14px;font-weight: 500;">Monday</span><select class="form-control form-control-sm" style="font-size: 14px;padding: 3px 6px;font-weight: 500;"><option value="0" selected="">Select...</option><option value="1">Morning</option><option value="2">Afternoon</option><option value="3">Evening</option></select></div>
+                        <div
+                                class="col" style="padding: 0px 10px;"><span style="font-size: 14px;font-weight: 500;">Monday</span><select class="form-control form-control-sm" style="font-size: 14px;padding: 3px 6px;font-weight: 500;"><option value="0" selected="">Select...</option><option value="1">Morning</option><option value="2">Afternoon</option><option value="3">Evening</option></select></div>
+                    </div>
+                    <div class="form-row" style="margin: 0;padding: 10px ;">
+                        <div class="col-12">
+                            <h5 style="font-size: 16px;font-weight: 600;margin-bottom: 15px;">Caregiver Criteria</h5>
+                        </div>
+                        <div class="col" style="padding: 0px 10px;"><span style="font-size: 15px;font-weight: 500;font-family: Montserrat, sans-serif;">Gender</span><select class="form-control form-control-sm" style="font-size: 13px;padding: 3px 6px;"><option value="0" selected="">Select...</option><option value="1">Male</option><option value="2">Female</option></select></div>
+                        <div
+                                class="col" style="padding: 0px 10px;"><span style="font-size: 15px;font-weight: 500;font-family: ABeeZee, sans-serif;">Language</span><select class="form-control form-control-sm" style="font-size: 13px;padding: 3px 6px;"><option value="0" selected="">Select...</option><option value="1">English</option><option value="2">Russian</option><option value="3">French</option><option value="3">Italian</option><option value="3">Hindi</option></select></div>
+                        <div
+                                class="col-sm-4" style="padding: 0px 10px;"><span class="d-block" style="font-size: 15px;font-weight: 500;font-family: ABeeZee, sans-serif;">Distance</span><input class="form-control form-control-sm d-inline-block" type="number" style="width: 40%;margin-right: 1%;padding: 3px 6px;"
+                                                                                                                                                                                                   min="1" max="25" step="1" placeholder="Mi."><input class="form-control form-control-sm d-inline-block" type="number" style="margin-left: 2%;padding: 3px 6px;width: 50%;" placeholder="Zip Code"></div>
+                    </div><button class="btn btn-primary btn-sm" type="submit" style="margin: 10px 0px;background-color: #4267b2;padding: 5px 15px;">Search</button></form>
+            </div>
+            <div class="table-responsive table-bordered text-left">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr style="font-size: 12px;">
+                        <th style="font-size: 13px;font-family: Montserrat, sans-serif;font-weight: 600;padding: 9px 7px;">Name</th>
+                        <th style="font-size: 13px;font-family: Montserrat, sans-serif;font-weight: 600;padding: 9px 7px;">Gender</th>
+                        <th style="font-size: 13px;font-family: Montserrat, sans-serif;font-weight: 600;padding: 9px 7px;">Language</th>
+                        <th style="font-size: 13px;font-family: Montserrat, sans-serif;font-weight: 600;padding: 9px 7px;">Distance</th>
+                        <th class="text-center" style="font-size: 13px;font-family: Montserrat, sans-serif;font-weight: 600;padding: 9px 7px;background-color: rgba(72,133,237,0.1);">Mon</th>
+                        <th class="text-center" style="font-size: 13px;font-family: Montserrat, sans-serif;font-weight: 600;padding: 9px 7px;background-color: rgba(72,133,237,0.1);">Tue</th>
+                        <th class="text-center" style="font-size: 13px;font-family: Montserrat, sans-serif;font-weight: 600;padding: 9px 7px;background-color: rgba(72,133,237,0.1);">Wed</th>
+                        <th class="text-center" style="font-size: 13px;font-family: Montserrat, sans-serif;font-weight: 600;padding: 9px 7px;background-color: rgba(72,133,237,0.1);">Thu</th>
+                        <th class="text-center" style="font-size: 13px;font-family: Montserrat, sans-serif;font-weight: 600;padding: 9px 7px;background-color: rgba(72,133,237,0.1);">Fri</th>
+                        <th class="text-center" style="font-size: 13px;font-family: Montserrat, sans-serif;font-weight: 600;padding: 9px 7px;background-color: rgba(72,133,237,0.1);">Sat</th>
+                        <th class="text-center" style="font-size: 13px;font-family: Montserrat, sans-serif;font-weight: 600;padding: 9px 7px;background-color: rgba(72,133,237,0.1);">Sun</th>
                     </tr>
                     </thead>
-                    <tbody class="custom-tbody">
-                    <!-- Body -->
-                    <tr class="custom-tr-header" th:each="profile : ${profiles}">
-                        <td th:text="|${profile.last}, ${profile.first}|">Doe</td>
-                        <td th:text="${profile.gender}">Male</td>
-                        <td th:text="${profile.zip}">11230</td>
-                        <td th:if="${profile.getEnglish()}">Yes</td>
-                        <td th:if="${!profile.getEnglish()}">No</td>
-                        <td th:text="${profile.language}">Russian</td>
-                        <td th:text="${profile.phone}">1234567890</td>
-                        <td th:text="${profile.address}">405 Ocean Ave</td>
-                        <td th:text="${profile.ethnicity}">United States</td>
-                        <th:block th:each="day : ${schedules.get(profile.id)}">
-                            <td>
-                                <span th:if="${day.morning}">Morning, </span>
-                                <span th:if="${day.afternoon}">Noon, </span>
-                                <span th:if="${day.evening}">Evening</span>
-                            </td>
-                        </th:block>
-
+                    <tbody>
+                    <tr style="font-size: 13px;">
+                        <td style="padding: 7px;font-weight: 500;"><a href="#test1" style="color: #007bff;font-weight: 500;font-family: Montserrat, sans-serif;font-size: 13px;" data-toggle="modal">John Doe</a></td>
+                        <td style="padding: 7px;font-weight: 500;font-size: 12px;">Male</td>
+                        <td style="padding: 7px;font-weight: 500;font-size: 12px;">English French</td>
+                        <td style="padding: 7px;font-weight: 500;font-size: 12px;">5 mi</td>
+                        <td style="padding: 7px;font-weight: 400;font-size: 11px;background-color: rgba(72,133,237,0.05);"></td>
+                        <td style="padding: 7px;font-weight: 400;font-size: 11px;background-color: rgba(72,133,237,0.05);">Morning Noon</td>
+                        <td style="padding: 7px;font-weight: 400;font-size: 11px;background-color: rgba(72,133,237,0.05);">Morning, Noon, Evening</td>
+                        <td style="padding: 7px;font-weight: 400;font-size: 11px;background-color: rgba(72,133,237,0.05);">Morning, Noon</td>
+                        <td style="padding: 7px;font-weight: 400;font-size: 11px;background-color: rgba(72,133,237,0.05);">Morning</td>
+                        <td style="padding: 7px;font-weight: 400;font-size: 11px;background-color: rgba(72,133,237,0.05);">Noon</td>
+                        <td style="padding: 7px;font-weight: 400;font-size: 11px;background-color: rgba(72,133,237,0.05);">Morning, Noon, Evening</td>
                     </tr>
-                    <!-- End Body -->
                     </tbody>
                 </table>
-                <script th:src="@{/assets/custom.js}"></script>
-                <script>
-
-                        var elmnt = document.getElementsByClassName("helpCont");
-                        $(elmnt).remove();
-                        var elmnt2 = document.getElementsByClassName("helpBtn");
-                        $(elmnt2).remove();
-
-                </script>
             </div>
-
-<!--            &lt;!&ndash; Schedule &ndash;&gt;-->
-<!--            <div th:each="key : ${schedules.keySet()}">-->
-<!--            <div class="modal fade" role="dialog" tabindex="-1" th:id="|p${key}|">-->
-<!--                <div class="modal-dialog" role="document">-->
-<!--                    <div class="modal-content">-->
-<!--                        <div class="modal-header">-->
-<!--&lt;!&ndash;                            <h4 class="modal-title" style="color: #4267b2;" th:text="|${profiles.get(schedule.getUserId()-2).first} ${profiles.get(schedule.getUserId()-2).last}|">&ndash;&gt;-->
-<!--&lt;!&ndash;                                John Doe&ndash;&gt;-->
-<!--&lt;!&ndash;                            </h4>&ndash;&gt;-->
-<!--                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>-->
-<!--                        </div>-->
-<!--                        <div class="modal-body text-capitalize">-->
-<!--                            <div class="row modal-schedule-day" th:each="schedule : ${schedules.get(key)}">-->
-
-<!--                                <div class="col-3">-->
-<!--                                    <span th:text="${schedule.day}" style="font-size: 18px;font-weight: bold;">Monday</span></div>-->
-<!--                                <div class="col-3">-->
-<!--                                    <span style="font-size: 18px;" th:if="${schedule.morning}">Morning </span>-->
-<!--                                </div>-->
-<!--                                <div class="col-3">-->
-<!--                                    <span style="font-size: 18px;" th:if="${schedule.afternoon}">Afternoon </span>-->
-<!--                                </div>-->
-<!--                                <div class="col-3">-->
-<!--                                    <span style="font-size: 18px;" th:if="${schedule.evening}">Evening </span>-->
-<!--                                </div>-->
-
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            </div>-->
-
+            <div class="modal fade" role="dialog" tabindex="-1" id="test1" style="margin-top: 100px;">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" style="color: #4267b2;font-size: 18px;">John Doe</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                        <div class="modal-body" style="padding: 16px 20px;">
+                            <div class="row">
+                                <div class="col-12" style="padding: 10px 15px;"><span style="font-size: 16px;font-weight: 500;">Male</span></div>
+                                <div class="col-12" style="padding: 10px 15px;"><span style="font-size: 16px;font-weight: 500;">37 years old</span></div>
+                                <div class="col-12" style="padding: 10px 15px;"><span style="font-size: 16px;font-weight: 500;">Spanish, English</span>
+                                    <div class="table-responsive table-bordered" style="margin-top: 15px;">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <th class="text-center" style="font-size: 13px;font-family: Montserrat, sans-serif;font-weight: 600;padding: 9px 7px;background-color: rgba(72,133,237,0.1);">Mon</th>
+                                                <th class="text-center" style="font-size: 13px;font-family: Montserrat, sans-serif;font-weight: 600;padding: 9px 7px;background-color: rgba(72,133,237,0.1);">Tue</th>
+                                                <th class="text-center" style="font-size: 13px;font-family: Montserrat, sans-serif;font-weight: 600;padding: 9px 7px;background-color: rgba(72,133,237,0.1);">Wed</th>
+                                                <th class="text-center" style="font-size: 13px;font-family: Montserrat, sans-serif;font-weight: 600;padding: 9px 7px;background-color: rgba(72,133,237,0.1);">Thu</th>
+                                                <th class="text-center" style="font-size: 13px;font-family: Montserrat, sans-serif;font-weight: 600;padding: 9px 7px;background-color: rgba(72,133,237,0.1);">Fri</th>
+                                                <th class="text-center" style="font-size: 13px;font-family: Montserrat, sans-serif;font-weight: 600;padding: 9px 7px;background-color: rgba(72,133,237,0.1);">Sat</th>
+                                                <th class="text-center" style="font-size: 13px;font-family: Montserrat, sans-serif;font-weight: 600;padding: 9px 7px;background-color: rgba(72,133,237,0.1);">Sun</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="text-center">
+                                                <td style="padding: 7px;font-weight: 400;font-size: 11px;background-color: rgba(72,133,237,0.05);">Morning</td>
+                                                <td style="padding: 7px;font-weight: 400;font-size: 11px;background-color: rgba(72,133,237,0.05);">Morning Noon</td>
+                                                <td style="padding: 7px;font-weight: 400;font-size: 11px;background-color: rgba(72,133,237,0.05);">Morning Evening</td>
+                                                <td style="padding: 7px;font-weight: 400;font-size: 11px;background-color: rgba(72,133,237,0.05);">Morning Noon Evening</td>
+                                                <td style="padding: 7px;font-weight: 400;font-size: 11px;background-color: rgba(72,133,237,0.05);">Morning</td>
+                                                <td style="padding: 7px;font-weight: 400;font-size: 11px;background-color: rgba(72,133,237,0.05);"></td>
+                                                <td style="padding: 7px;font-weight: 400;font-size: 11px;background-color: rgba(72,133,237,0.05);">Morning</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-12"><span class="text-center d-block" style="font-size: 16px;font-weight: 500;padding: 5px;border-top: 1px solid #dee2e6;"></span></div>
+                                <div class="col-12" style="padding: 10px 15px;"><span class="text-center text-info d-inline-block" style="font-size: 16px;font-weight: 500;padding: 5px;width: 49%;">123-456-7899</span><span class="text-center text-info d-inline-block" style="font-size: 16px;font-weight: 500;padding: 5px 10px;width: 49%;">jdoe@gmail.com</span></div>
+                                <div
+                                        class="col-12 d-flex justify-content-center" style="padding: 10px 15px;"><button class="btn btn-primary btn-sm" type="button" style="background-color: #4267b2;padding: 7px 10px;font-size: 13px;">Request Contact Info</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </main>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+<script src="assets/js/script.min.js"></script>
 </body>
 
 </html>

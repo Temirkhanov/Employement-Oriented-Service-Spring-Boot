@@ -23,33 +23,24 @@
   margin-bottom: 3px;
 }
 
-tr:nth-child(even) {
-  background-color: #dbdbdb;
-}
-
-thead .tcustom-header th:hover {
-  background-color: #acb3e8;
-}
-
-thead .tcustom-header th {
-  border-bottom: 1px solid gray;
-}
-
-.custom-tr-header {
-  font-size: 12px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 500;
-}
-
-.tcustom-header {
-  font-size: 12px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 600;
-  text-align: left;
-}
-.custom-tr-header td {
-  padding: 4px 2px 4px 2px;
+.table-bordered td, th {
+  padding: 7px 6px 7px 6px;
   text-align: center;
+}
+
+.zebra-table tr:nth-child(even) {
+  background: #e6e6e6;
+}
+
+.custom-search {
+  font-size: 15px;
+}
+
+
+.custom-search-col {
+  padding: 15px 5px;
+  font-size: 14px;
+  font-family: Verdana, Arial, sans-serif;
 }
 
 
