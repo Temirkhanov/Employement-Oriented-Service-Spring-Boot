@@ -10,102 +10,170 @@
 <body>
 <nav th:replace="~{main_layout :: nav}"  style="z-index: 9999;"></nav>
 
-<main class="page">
-  <section class="clean-block features">
+<main class="page payment-page">
+  <section class="clean-block payment-form dark">
     <div class="container">
-      <div class="block-heading"></div>
-      <div class="content">
-        <div class="row no-gutters">
-          <div class="col-md-12 col-lg-6 d-flex justify-content-center">
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                <tr></tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td class="text-uppercase" th:text="|${profile.getFirst()} ${profile.getLast()}|" style="font-size: 28px;color: #4267b2;">John Doe</td>
-                </tr>
-                <tr>
-                  <td class="agent-profile">
-                    <i class="la la-map-marker" style="margin-right: 10px;"></i>
-                    <span th:text="${profile.getZip()}">Zip</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="agent-profile">
-                    <i class="la la-phone" style="margin-right: 10px;"></i>
-                    <span th:text="${profile.getPhone()}">Phone</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="agent-profile">
-                    <i class="la la-birthday-cake" style="margin-right: 10px;"></i>
-                    <span th:text="${profile.getDob()}">Date Of Birth</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="agent-profile">
-                    <i class="la la-transgender" style="margin-right: 10px;"></i>
-                    <span th:text="${profile.getGender()}">Gender</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="agent-profile">
-                    <i class="la la-language" style="margin-right: 10px;"></i>
-                    <span th:text="${profile.getLanguage()}">Language</span>
-                    <span th:if="${profile.getEnglish()}">, English</span>
-                  </td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="col-md-12 col-lg-6 d-flex justify-content-center">
-
-            <!-- Schedule -->
-            <div th:object="${schedule}">
-              <div th:each="sch, itemStat : *{scheduleList}">
-
-                <h1 class="display-4 text-center day-heading" th:text="*{scheduleList[__${itemStat.index}__].day}" >Tuesday</h1>
-                <input type="hidden" th:field="*{scheduleList[__${itemStat.index}__].day}" th:value="*{scheduleList[__${itemStat.index}__].day}"/>
-                <div class="form-group d-flex justify-content-center" style="margin-bottom: 20px;" >
-
-                  <div class="custom-control custom-checkbox" style="margin-right: 10px;">
-                    <input type="checkbox" class="custom-control-input"
-                           th:field="*{scheduleList[__${itemStat.index}__].morning}" value="1"
-                           th:id="|${sch.day}-morning|" />
-                    <label class="custom-control-label" th:for="|${sch.day}-morning|">Morning</label>
-                  </div>
-
-                  <div class="custom-control custom-checkbox" style="margin-right: 10px;">
-                    <input type="checkbox" class="custom-control-input"
-                           th:field="*{scheduleList[__${itemStat.index}__].afternoon}" value="1"
-                           th:id="|${sch.day}-afternoon|" />
-                    <label class="custom-control-label" th:for="|${sch.day}-afternoon|">Afternoon</label>
-                  </div>
-
-                  <div class="custom-control custom-checkbox" style="margin-right: 10px;">
-                    <input type="checkbox" class="custom-control-input"
-                           th:field="*{scheduleList[__${itemStat.index}__].evening}" value="1"
-                           th:id="|${sch.day}-evening|" />
-                    <label class="custom-control-label" th:for="|${sch.day}-evening|">Evening</label>
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-
-          </div>
+      <div class="products">
+        <h3 class="title" style="font-size: 22px;margin-bottom: 0;">John Doe</h3>
+        <div class="total" style="border-top: none;padding: 3px;"><span class="text-secondary d-block" style="font-weight: 500;font-size: 17px;padding: 10px;">11229</span><span class="d-block" style="font-weight: 500;font-size: 17px;padding: 10px;">Male</span><span class="d-block" style="font-weight: 500;font-size: 17px;padding: 10px;">08-27-1992</span>
+          <span
+                  class="d-block" style="font-weight: 500;font-size: 17px;padding: 10px;">456-456-7899</span><span class="d-block" style="font-weight: 500;font-size: 17px;padding: 10px;">jdoe@gmail.com</span></div>
+        <div class="total" style="border-top: none;padding: 3px;"><span class="text-center text-secondary d-block" style="font-weight: 500;font-size: 16px;padding: 10px;border-top: 1px solid rgba(0,0,0,.1);">Contact requests</span><span class="text-muted d-block" style="font-weight: 500;font-size: 15px;padding: 10px;"><span class="text-info">XYZAgency</span> requested
+                    your contact information.
+                    <div role="group" class="btn-group btn-group-sm"><button class="btn btn-success" type="submit" style="font-size: 13px;">Accept</button><button class="btn btn-danger" type="submit" style="font-size: 13px;">Decline</button></div>
+                    </span><span class="text-muted d-block" style="font-weight: 500;font-size: 15px;padding: 10px;"><span class="text-info">XYZAgency</span> requested your contact information.
+                    <div class="btn-group btn-group-sm" role="group"><button class="btn btn-success" type="submit" style="font-size: 13px;">Accept</button><button class="btn btn-danger" type="submit" style="font-size: 13px;">Decline</button></div>
+                    </span>
         </div>
       </div>
+      <form style="width: 100%;max-width: 100%;">
+        <div class="card-details">
+          <div class="form-row">
+            <div class="col">
+              <h1 style="font-size: 15px;font-weight: 600;">Monday</h1>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">Morning</label></div>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">noon</label></div>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">evening</label></div>
+            </div>
+            <div class="col">
+              <h1 style="font-size: 15px;font-weight: 600;">Tuesday</h1>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">Morning</label></div>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">noon</label></div>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">evening</label></div>
+            </div>
+            <div class="col">
+              <h1 style="font-size: 15px;font-weight: 600;">Wednesday</h1>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">Morning</label></div>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">noon</label></div>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">evening</label></div>
+            </div>
+            <div class="col">
+              <h1 style="font-size: 15px;font-weight: 600;">Thursday</h1>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">Morning</label></div>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">noon</label></div>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">evening</label></div>
+            </div>
+            <div class="col">
+              <h1 style="font-size: 15px;font-weight: 600;">Friday</h1>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">Morning</label></div>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">noon</label></div>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">evening</label></div>
+            </div>
+            <div class="col">
+              <h1 style="font-size: 15px;font-weight: 600;">Saturday</h1>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">Morning</label></div>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">noon</label></div>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">evening</label></div>
+            </div>
+            <div class="col">
+              <h1 style="font-size: 15px;font-weight: 600;">Sunday</h1>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">Morning</label></div>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">noon</label></div>
+              <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1" style="font-size: 13px;font-weight: 500;padding-top: 3px;">evening</label></div>
+            </div>
+            <div class="col-sm-12"><button class="btn btn-primary btn-block btn-sm" type="submit" style="font-size: 14px;font-weight: 500;background-color: #4267b2;">Update Availability</button></div>
+          </div>
+        </div>
+      </form>
     </div>
-
-
   </section>
 </main>
+<!--<main class="page">-->
+<!--  <section class="clean-block features">-->
+<!--    <div class="container">-->
+<!--      <div class="block-heading"></div>-->
+<!--      <div class="content">-->
+<!--        <div class="row no-gutters">-->
+<!--          <div class="col-md-12 col-lg-6 d-flex justify-content-center">-->
+<!--            <div class="table-responsive">-->
+<!--              <table class="table">-->
+<!--                <thead>-->
+<!--                <tr></tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                <tr>-->
+<!--                  <td class="text-uppercase" th:text="|${profile.getFirst()} ${profile.getLast()}|" style="font-size: 28px;color: #4267b2;">John Doe</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                  <td class="agent-profile">-->
+<!--                    <i class="la la-map-marker" style="margin-right: 10px;"></i>-->
+<!--                    <span th:text="${profile.getZip()}">Zip</span>-->
+<!--                  </td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                  <td class="agent-profile">-->
+<!--                    <i class="la la-phone" style="margin-right: 10px;"></i>-->
+<!--                    <span th:text="${profile.getPhone()}">Phone</span>-->
+<!--                  </td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                  <td class="agent-profile">-->
+<!--                    <i class="la la-birthday-cake" style="margin-right: 10px;"></i>-->
+<!--                    <span th:text="${profile.getDob()}">Date Of Birth</span>-->
+<!--                  </td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                  <td class="agent-profile">-->
+<!--                    <i class="la la-transgender" style="margin-right: 10px;"></i>-->
+<!--                    <span th:text="${profile.getGender()}">Gender</span>-->
+<!--                  </td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                  <td class="agent-profile">-->
+<!--                    <i class="la la-language" style="margin-right: 10px;"></i>-->
+<!--                    <span th:text="${profile.getLanguage()}">Language</span>-->
+<!--                    <span th:if="${profile.getEnglish()}">, English</span>-->
+<!--                  </td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--              </table>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-md-12 col-lg-6 d-flex justify-content-center">-->
+
+<!--            &lt;!&ndash; Schedule &ndash;&gt;-->
+<!--            <div th:object="${schedule}">-->
+<!--              <div th:each="sch, itemStat : *{scheduleList}">-->
+
+<!--                <h1 class="display-4 text-center day-heading" th:text="*{scheduleList[__${itemStat.index}__].day}" >Tuesday</h1>-->
+<!--                <input type="hidden" th:field="*{scheduleList[__${itemStat.index}__].day}" th:value="*{scheduleList[__${itemStat.index}__].day}"/>-->
+<!--                <div class="form-group d-flex justify-content-center" style="margin-bottom: 20px;" >-->
+
+<!--                  <div class="custom-control custom-checkbox" style="margin-right: 10px;">-->
+<!--                    <input type="checkbox" class="custom-control-input"-->
+<!--                           th:field="*{scheduleList[__${itemStat.index}__].morning}" value="1"-->
+<!--                           th:id="|${sch.day}-morning|" />-->
+<!--                    <label class="custom-control-label" th:for="|${sch.day}-morning|">Morning</label>-->
+<!--                  </div>-->
+
+<!--                  <div class="custom-control custom-checkbox" style="margin-right: 10px;">-->
+<!--                    <input type="checkbox" class="custom-control-input"-->
+<!--                           th:field="*{scheduleList[__${itemStat.index}__].afternoon}" value="1"-->
+<!--                           th:id="|${sch.day}-afternoon|" />-->
+<!--                    <label class="custom-control-label" th:for="|${sch.day}-afternoon|">Afternoon</label>-->
+<!--                  </div>-->
+
+<!--                  <div class="custom-control custom-checkbox" style="margin-right: 10px;">-->
+<!--                    <input type="checkbox" class="custom-control-input"-->
+<!--                           th:field="*{scheduleList[__${itemStat.index}__].evening}" value="1"-->
+<!--                           th:id="|${sch.day}-evening|" />-->
+<!--                    <label class="custom-control-label" th:for="|${sch.day}-evening|">Evening</label>-->
+<!--                  </div>-->
+
+<!--                </div>-->
+
+<!--              </div>-->
+<!--            </div>-->
+
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+
+<!--  </section>-->
+<!--</main>-->
 
 </body>
 </html>
