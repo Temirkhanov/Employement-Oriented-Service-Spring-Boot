@@ -4,10 +4,7 @@ import com.goruslan.demo.domain.Profile;
 import com.goruslan.demo.domain.Role;
 import com.goruslan.demo.domain.Schedule;
 import com.goruslan.demo.domain.User;
-import com.goruslan.demo.service.ProfileService;
-import com.goruslan.demo.service.RoleService;
-import com.goruslan.demo.service.ScheduleService;
-import com.goruslan.demo.service.UserService;
+import com.goruslan.demo.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -31,12 +28,14 @@ public class AuthController {
     private ProfileService profileService;
     private RoleService roleService;
     private ScheduleService scheduleService;
+    private RequestService requestService;
 
-    public AuthController(UserService userService, ProfileService profileService, RoleService roleService, ScheduleService scheduleService) {
+    public AuthController(UserService userService, ProfileService profileService, RoleService roleService, ScheduleService scheduleService, RequestService requestService) {
         this.userService = userService;
         this.profileService = profileService;
         this.roleService = roleService;
         this.scheduleService = scheduleService;
+        this.requestService = requestService;
     }
 
     @GetMapping("/login")
@@ -141,6 +140,7 @@ public class AuthController {
             Profile currentProfile = profile.get();
             ScheduleHelper scheduleHelper = new ScheduleHelper(scheduleService.findAllByProfile(currentProfile));
             model.addAttribute("profile", currentProfile);
+            model.addAttribute("requests", requestService.getAll(currentProfile.getId()));
             model.addAttribute("schedule", scheduleHelper);
         }
         else {
