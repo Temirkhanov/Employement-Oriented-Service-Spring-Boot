@@ -161,7 +161,12 @@ public class AuthController {
         return "list";
     }
 
-
+    @PostMapping("/list")
+    public String findAgents(Model model, List<Schedule> schedules, String gender, String language){
+        // Fix here if language property becomes the list
+        model.addAttribute(profileService.searchProfiles(schedules, gender, language));
+        return "list";
+    }
     // ==============================================================================
     // =============================== OTHER ========================================
 

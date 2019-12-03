@@ -13,6 +13,7 @@ public interface ProfileRepository extends JpaRepository<Profile, Long> {
 
     Optional<Profile> findProfileByUser(User user);
 
+
     //@Query("SELECT p FROM Person p WHERE LOWER(p.lastName) = LOWER(:lastName)")
 
 

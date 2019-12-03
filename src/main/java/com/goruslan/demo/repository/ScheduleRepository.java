@@ -17,4 +17,6 @@ public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
 
     List<Schedule> findAll();
 
+    List<Schedule> findAllByDay(String day);
+
 }
